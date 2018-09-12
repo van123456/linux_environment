@@ -1,0 +1,75 @@
+1.安装依赖环境
+
+　　# yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+2.下载python3、
+
+    # wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz
+3.创建安装目录
+
+    # mkdir -p /usr/local/python3
+4.解压
+
+    #tar zxvf Python-3.6.1.tgz
+5.配置
+	
+    # cd Python-3.6.1
+    # ./configure --prefix=/usr/local/python3
+6.编译和安装
+
+    #make && make install
+7.建立python3的软链
+
+
+    # ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+8.并将/usr/local/python3/bin加入PATH
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+# vim ~/.bash_profile
+# .bash_profile
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
+# User specific environment and startup programs
+PATH=$PATH:$HOME/bin:/usr/local/python3/bin
+export PATH
+
+
+9安装pip
+wget --no-check-certificate  https://pypi.python.org/packages/source/s/setuptools/setuptools-19.6.tar.gz#md5=c607dd118eae682c44ed146367a17e26
+tar -zxvf setuptools-19.6.tar.gz
+
+cd setuptools-19.6
+
+python3 setup.py build
+
+python3 setup.py install
+
+10安装pip
+
+命令如下：
+
+wget --no-check-certificate  https://pypi.python.org/packages/source/p/pip/pip-8.0.2.tar.gz#md5=3a73c4188f8dbad6a1e6f6d44d117eeb
+
+tar -zxvf pip-8.0.2.tar.gz
+
+cd pip-8.0.2
+
+python3 setup.py build
+
+python3 setup.py install
+
+如果没有意外的话，pip安装完
+
+11不行的话在创建一下pip3的软链接(我也不清楚这一步有什么用)
+
+
+# ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
